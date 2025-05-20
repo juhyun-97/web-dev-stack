@@ -93,3 +93,131 @@
 .radius2 {
   border-radius: 50%;
 }
+/* box-sizing */
+.box {
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  border: 10px solid;
+  background-color: lightcoral;
+  margin: 10px;
+}
+.box-content {
+  box-sizing: content-box;
+}
+.box-border {
+  box-sizing: border-box;
+}
+/* display */
+.display {
+  background-color: pink;
+  padding: 10px;
+  margin: 5px;
+  width: 150px;
+  height: 70px;
+}
+.display-inline {
+  display: inline;
+}
+.display-block {
+  display: block;
+}
+.display-inline-block {
+  display: inline-block;
+}
+/* float */
+.float {
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin: 5px;
+  background-color: skyblue;
+  text-align: center;
+  line-height: 80px;
+}
+/* position */
+#outer {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  background: #f4f4f4;
+  overflow: auto;
+}
+.position-box {
+  width: 100px;
+  height: 100px;
+}
+#relative {
+  background-color: orange;
+  position: relative;
+  /* top, bottom, left, right */
+  bottom: 100px;
+  right: -50px;
+}
+/* 현재 내가 시작한 위치부터 시작함 */
+#absolute {
+  background-color: green;
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+}
+#fixed {
+  background-color: red;
+  position: fixed;
+  right: 20px;
+  top: 30px;
+}
+/* sitcky 주로 상단메뉴 스크롤 내려도 고정하고싶을때? */
+#sticky {
+  background: blue;
+  position: sticky;
+  top: 0;
+}
+.visibility {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background-color: lightgray;
+  display: inline-block;
+}
+#vis2 {
+  visibility: visible;
+}
+#vis1 {
+  visibility: hidden;
+}
+/* visibility hidden처리하면 공간은 그대로 남아있고 박스만 사라짐 */
+#dis1 {
+  display: none;
+}
+/* display none 처리하면 화면에서 사라짐. 태그는 유지. */
+#z-outer {
+  width: 200px;
+  height: 200px;
+  background-color: #ddd;
+  position: relative;
+}
+/* z-index 겹겹이 쌓아놓을때 씀 */
+.z-index {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  opacity: 0.5;
+}
+#z-index1 {
+  background-color: red;
+  z-index: 1;
+  top: 20px;
+  left: 20px;
+}
+#z-index2 {
+  background-color: green;
+  z-index: 2;
+  top: 40px;
+  left: 40px;
+}
+#z-index3 {
+  background-color: blue;
+  z-index: 9999;
+}
+/* 9999 = 무조건 해당색을 위로 올리고싶다 */

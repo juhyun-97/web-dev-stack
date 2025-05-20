@@ -31,7 +31,7 @@
   /* repeat : 반복 여부 설정 no-repeat(주로 많이씀) */
   background-repeat: no-repeat;
   /* position : 이미지 위치 설정 center */
-  background-position: bottom right;
+  background-position: center;
   /* attachment ; 스크롤 여부 확인 */
   background-attachment: fixed;
   /* background : color image position/size repeat attachment */
