@@ -1,11 +1,44 @@
 body {
   background-color: rgb(197, 166, 166);
+  padding: 0px;
+  display: flex;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
 header {
-  text-decoration: none;
+  background-color: white;
+  color: black;
+  padding: 10px;
   flex: none;
   position: fixed;
   display: flex;
-  background-color: rgb(253, 252, 252);
-  color: black;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+section h2 {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: white;
+}
+section p {
+  font-size: 15px;
+  color: white;
+}
+#sticky {
 }
