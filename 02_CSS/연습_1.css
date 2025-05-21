@@ -1,0 +1,72 @@
+header {
+  position: fixed;
+  background-color: white; /*겹치는거 싫을때 백그라운드 컬러 지정하면됨*/
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+/* h1,nav 각각 묶어놨으므로 justify content 적용시 각각 묶음으로 인식하여 수정됨 */
+header h1 {
+  font-size: 2rem;
+  padding: 10px; /*안 여백*/
+  font-weight: bold; /*글씨 굵기*/
+}
+header nav {
+  display: flex;
+  /* background-color: aqua; */
+}
+header nav a {
+  display: flex; /*텍스트도 item이라고 생각하기*/
+  align-items: center;
+  padding: 5px;
+  /* display: inline-block;
+  height: 52px;
+  line-height: 52px;
+  padding: 5px; */
+}
+header nav a:hover {
+  /*hover는 마우스 올릴때 효과*/
+  background-color: black;
+  color: white;
+}
+section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+section h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+section p {
+  line-height: 1.5;
+  text-align: center;
+  width: 70%;
+}
+#section1 {
+  /* padding-top: 52px;     상단여백 */
+  background-color: cadetblue;
+}
+#section2 {
+  background-color: blueviolet;
+  color: white;
+}
+#section3 {
+  background-color: forestgreen;
+}
+.top {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  width: 70px;
+  height: 70px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
