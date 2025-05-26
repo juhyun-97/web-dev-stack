@@ -13,8 +13,10 @@
         ["010", "1234", "5678"] → 010-1234-5678
         <script>
           const tel = ["010", "1234", "5678"];
-          const strToArr = tel.join("-"); // - 써서 합치다
-          console.log(strToArr);
+          // const strToArr = tel.join("-"); // - 써서 합치다
+          // console.log(strToArr);
+          const strTel = tel.join("-");
+          console.log(strTel);
         </script>
       </li>
 
@@ -31,13 +33,16 @@
         배열에서 원하는 항목만 잘라내서 출력하시오.
         <script>
           const music = ["가요", "팝송", "클래식", "재즈", "OST"];
-          music.splice(0, 1);
-          music.splice(3.1);
-          console.log(music);
+          // music.splice(0, 1);
+          // music.splice(3.1);
+          // console.log(music);
+          console.log(music.slice(1, 4));
+          console.log(music[music.length - 1]);
+          console.log(music.slice(4));
 
-          const music2 = [];
-          music2[0] = "OST";
-          console.log(music2);
+          // const music2 = [];
+          // music2[0] = "OST";
+          // console.log(music2);
         </script>
       </li>
 
@@ -54,7 +59,7 @@
         배열에서 "B"의 인덱스를 찾아 출력하시오. //철수
         <script>
           const letters = ["A", "B", "C"]; // indexof 인덱스찾기
-          console.log(letters[letters.indexOf("B")]);
+          console.log(letters.indexOf("B"));
         </script>
       </li>
 
@@ -72,9 +77,11 @@
         중복된 값이 있는 배열에서 중복을 제거한 새 배열을 만들어 출력하시오.
         <script>
           const dupArr = [1, 2, 2, 3, 3, 3];
-          const food = new Set(dupArr);
-          const foodArr = [...food];
-          console.log(foodArr);
+          // const food = new Set(dupArr);
+          // const foodArr = [...food];
+          // console.log(foodArr);
+          const unique = [...new Set(dupArr)];
+          console.log(unique);
           // [1, 2, 3]
         </script>
       </li>

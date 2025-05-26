@@ -20,10 +20,13 @@
       <li>
         구구단 2단을 출력하시오.
         <script>
-          let num = 1;
-          while (((num += 1), num <= 18)) {
-            console.log(num);
-            num++;
+          // let num = 1;
+          // while (((num += 1), num <= 18)) {
+          //   console.log(num);
+          //   num++;
+          // }
+          for (let i = 1; i <= 9; i++) {
+            console.log(`2 x ${i} = ${2 * i}`);
           }
         </script>
       </li>
@@ -31,7 +34,12 @@
       <li>
         1부터 사용자에게 입력받은 숫자까지의 합을 출력하시오. (prompt 사용)
         <script>
-          // const input = prompt("숫자를 입력하세요");
+          const input = Number(prompt("숫자를 입력해주세요"));
+          let total = 0;
+          for (let i = 1; i <= input; i++) {
+            total += i;
+          }
+          console.log("total : ", +total);
         </script>
       </li>
 
@@ -39,9 +47,7 @@
         1부터 100까지의 수 중 3의 배수만 출력하시오.
         <script>
           for (let i = 1; i <= 100; i++) {
-            if (i % 3 === 0) {
-              console.log(i);
-            }
+            if (i % 3 === 0) console.log(i);
           }
         </script>
       </li>
@@ -51,9 +57,12 @@
         <script>
           //if (number % 2 === 0) {
           const numbers = [12, 7, 9, 20, 33, 16];
-          console.log(numbers[0]);
-          console.log(numbers[3]);
-          console.log(numbers[5]);
+          // console.log(numbers[0]);
+          // console.log(numbers[3]);
+          // console.log(numbers[5]);
+          for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] % 2 === 0) console.log(numbers[i]);
+          }
         </script>
       </li>
 
@@ -61,9 +70,12 @@
         주어진 문자열 배열에서 글자 수가 3자 이상인 단어만 출력하시오.
         <script>
           const words = ["오므라이스", "라면", "불고기", "된장찌개", "김밥"];
-          console.log(words[0]);
-          console.log(words[2]);
-          console.log(words[3]);
+          // console.log(words[0]);
+          // console.log(words[2]);
+          // console.log(words[3]);
+          for (let i = 0; i < words.length; i++) {
+            if (words[i].length >= 3) console.log(words[i], words[i].length);
+          }
         </script>
       </li>
 
@@ -71,8 +83,20 @@
         배열에서 가장 큰 숫자를 찾아 출력하시오. //반복문으로...
         <script>
           const nums = [3, 45, 21, 99, 18, 77];
-          nums.splice(0, 6, 99);
-          console.log(nums);
+          let max = nums[0];
+          for (let i = 1; i < nums.length; i++) {
+            if (nums[i] > max) max = nums[i];
+          }
+          console.log("가장 큰 숫자 : ", max);
+          // sort
+          nums.sort((a, b) => a - b);
+          console.log(nums[nums.length - 1]);
+
+          nums.sort((a, b) => b - a);
+          console.log(nums[0]);
+
+          // Math.max
+          console.log(Math.max(...nums));
         </script>
       </li>
 
@@ -80,10 +104,10 @@
         break와 continue를 사용하여 1~10 사이 홀수만 출력하되, 7이 나오면
         멈추도록 구현하시오.
         <script>
-          for (let i = 1; i < 11; i++) {
+          for (let i = 1; i <= 10; i++) {
+            if (i === 7) break;
             if (i % 2 === 0) continue;
             console.log(i);
-            if (i === 7) break;
           }
         </script>
       </li>
@@ -98,6 +122,17 @@
         <script>
           const target = Math.floor(Math.random() * 100) + 1; // 1~100 랜덤 숫자
           console.log(target);
+          let count = 0;
+          while (true) {
+            count++;
+            const answer = Number(prompt("1~100까지 숫자를 입력해주세요"));
+            if (answer > target) alert("너무 큽니다");
+            else if (answer < target) alert("너무 작습니다");
+            else {
+              console.log(`${count}번 만에 성공!`);
+              break;
+            }
+          }
         </script>
       </li>
     </ol>
