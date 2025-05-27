@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="실습05_DOM.css" />
+  </head>
+  <body>
+    <h1 onclick="date()">오늘날짜</h1>
+    <h2>현재시간</h2>
+    <h2>올해 남은 시간</h2>
+    <h3>위대한 일은 작은 일들의 축적으로 시작된다.</h3>
+    <h4></h4>
+
+    <div id="testId" class="testClass" name="testName"></div>
+
+    <script>
+      const now = new Date();
+      console.log(
+        `${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일`
+      );
+    </script>
+    <script src="실습05_DOM.js"></script>
+  </body>
+</html>
