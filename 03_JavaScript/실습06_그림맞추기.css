@@ -1,0 +1,47 @@
+body {
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+h1 {
+  font-size: 3rem;
+}
+p {
+  font-size: 20px;
+  font-weight: bold;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  width: 100px;
+  height: 50px;
+  background-color: orangered;
+  color: black;
+  line-height: 50px;
+  text-align: center;
+  margin: 10px;
+  font-weight: bold;
+}
+.box1 {
+  width: 100px;
+  height: 50px;
+  background-color: navy;
+  color: orangered;
+  line-height: 50px;
+  text-align: center;
+  margin: 10px;
+  font-weight: bold;
+}
+img {
+  border-radius: 50%;
+  padding: 20px;
+}
+h2 {
+  font-style: oblique;
+}
