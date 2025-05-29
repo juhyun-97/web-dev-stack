@@ -3,22 +3,45 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
   align-items: center;
   height: 100vh;
+  margin: 0;
 }
-h1 {
+img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin: 10px;
+}
+button {
+  border: none;
+  font-size: 1rem;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: tomato;
+  color: navy;
+}
+button:last-child {
+  background-color: navy;
+  color: tomato;
+}
+/* h1 {
   font-size: 3rem;
 }
 p {
   font-size: 20px;
-  font-weight: bold;
-}
-section {
+  font-weight: bold; */
+/* } */
+/* section {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.box {
+} */
+/* .box {
   width: 100px;
   height: 50px;
   background-color: orangered;
@@ -37,11 +60,8 @@ section {
   text-align: center;
   margin: 10px;
   font-weight: bold;
-}
-img {
-  border-radius: 50%;
-  padding: 20px;
-}
+} */
 h2 {
-  font-style: oblique;
+  font-style: italic;
+  visibility: hidden;
 }
