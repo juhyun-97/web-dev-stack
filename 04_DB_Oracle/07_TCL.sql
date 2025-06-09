@@ -41,3 +41,17 @@ WHERE USER_ID IN (13,15);
 
 ROLLBACK TO SP;
 SELECT * FROM USER_03;
+
+ROLLBACK;
+
+-- HOBBY가 게임이 포함되신분들 삭제
+DELETE FROM USER_03
+WHERE HOBBY LIKE '%게임%';
+
+-- DDL 구문을 실행하는 순간 임시 저장된 변경사항들이 무조건 반영
+CREATE TABLE TEST_03(
+    TID NUMBER
+);
+
+ROLLBACK;
+SELECT * FROM USER_03;

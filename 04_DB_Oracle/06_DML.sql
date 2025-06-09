@@ -167,9 +167,51 @@ UPDATE USER_02
 SET MBTI = 'INTP'
 WHERE MBTI IS NULL;
 
+COMMIT;
+
 -- 사실 조건에서는 PRIMARY KEY로 조건을 거는걸 전제로 한다.
 
 ROLLBACK;
+
+-- MBTI가 ISFP인 사람들을 MBTI를 ENTJ로 변경
+UPDATE USER_02
+SET MBTI = 'ENTJ'
+WHERE MBTI = 'ISFP';
+-- EMPLOYEE에서 EMP_NAME이 선동일인 사람의 
+-- 급여(SALARY)를 7000원, 보너스를 0.2로 변경
+SELECT * FROM EMPLOYEE;
+
+UPDATE EMPLOYEE
+SET SALARY = 7000
+, BONUS = 0.2
+WHERE EMP_NAME = '선동일'; 
+
+ROLLBACK;
+
+/*
+    DELETE
+    테이블에 기록된 데이터를 삭제하는 구문
+    
+    DELETE FROM 테이블명
+    WHERE 조건식;
+    
+    --> WHERE 절을 제시하지 않으면 전체 행이 삭제됨
+*/
+SELECT * FROM USER_02;
+ROLLBACK;
+-- MBRI가 ISFJ인 사람들 삭제
+DELETE FROM USER_02
+WHERE MBTI = 'ISFJ';
+
+-- USER_02 사람들 전체 삭제
+DELETE FROM USER_02;
+
+-- TRUNCATE를 사용해서 사람들 전체 삭제 -> ROLLBACK 적용 X
+TRUNCATE TABLE USER_02;
+ROLLBACK;
+SELECT * FROM USER_02;
+
+
 
 
 
