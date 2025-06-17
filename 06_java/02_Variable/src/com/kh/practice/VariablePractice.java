@@ -102,13 +102,14 @@ public class VariablePractice {
 	 * 마지막 문자 : e
 	 * */
 	public void method5() {
-//		char ch = 'a';
-//		char gh = 'p';
-//		char jh = 'e';
-//		String str = "apple";
-//		
-//		
-//		System.out.printf("a%%%% %p%%% %%%%e", str.length());
+		char ch = 'a';
+		char gh = 'p';
+		char jh = 'e';
+		String str = "apple";
+		
+		
+		System.out.printf("a%%%% %p%%% %%%%e", str.length());
+		sc.nextLine();
 	}
 
 	/*
