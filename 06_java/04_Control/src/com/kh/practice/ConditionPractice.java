@@ -9,7 +9,7 @@ public class ConditionPractice {
 	
 	public static void main(String[] args) {
 		ConditionPractice c = new ConditionPractice();
-		c.method1();
+//		c.method1();
 		c.method2();
 		c.method3();
 		c.method4();
@@ -29,7 +29,15 @@ public class ConditionPractice {
        양수만 입력해주세요.
      */
     public void method1() {
-    	
+    	System.out.println("숫자를 입력하세요 > ");
+    	int num = sc.nextInt();
+    	if(num > 0 && num % 2 == 0) {
+    		System.out.println("짝수다");
+    	}	else if(num % 2 == 1) {
+    		System.out.println("홀수다");
+    	}	else if(num < 0){
+    		System.out.println("양수만 입력해주세요.");
+    	}
     }
 
     /*
@@ -38,11 +46,17 @@ public class ConditionPractice {
 
         피자 조각 수 : 7
         피자 먹는 사람 수 : 10
-        2
+        
 
      */
     public void method2() {
+      System.out.println("피자 조각수를 입력하세요 > ");
+      int a = sc.nextInt();
+      System.out.println("사람수를 입력하세요 > ");
+      int b = sc.nextInt();
       
+      int number = (b / a) * 2;
+      System.out.println(number);
     }
 
     /*
@@ -63,7 +77,15 @@ public class ConditionPractice {
         축하합니다, 합격입니다!
      */
     public void method3() {
-    	
+    	System.out.print("국어 과목의 점수를 입력하세요 > ");
+    	int a = sc.nextInt();
+    	System.out.print("영어 과목의 점수를 입력하세요 > ");
+    	int b = sc.nextInt();
+    	System.out.print("수학 과목의 점수를 입력하세요 > ");
+    	int c = sc.nextInt();
+    	System.out.println(a + b + c);
+    	System.out.println((a + b + c) / 3);
+    	    	
     }
 
     /*
