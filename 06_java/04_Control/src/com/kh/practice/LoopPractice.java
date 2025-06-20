@@ -3,6 +3,10 @@ package com.kh.practice;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import com.kh.practice.controller.RockPaperScissorController;
+import com.kh.practice.model.RockPaperScissor;
+import com.kh.practice.view.RockPaperScissorView;
+
 class LoopPractice {
 	
 	Scanner sc = new Scanner(System.in);
@@ -12,10 +16,10 @@ class LoopPractice {
 		LoopPractice l = new LoopPractice();
 //		l.method1();
 //		l.method2();
-		l.method3();
+//		l.method3();
 //		l.method4();
 //		l.method5();
-//		l.method6();
+		l.method6();
 		
 	}
  
@@ -30,8 +34,7 @@ class LoopPractice {
      */
     public void method1() {
         System.out.print("사용자 입력 : ");
-    	int number = Integer.parseInt(sc.nextLine());
-//    	System.out.println(number);
+    	int number = sc.nextInt();
     	for (int i = number; i >= 1; i--) {
     		System.out.println(i);
     	}
@@ -41,12 +44,24 @@ class LoopPractice {
 
     // 1+(-2)+3+(-4)+...과 같은 식으로 계속 더해나갔을 때, 몇까지 더해야 총합이 100 이상 되는지 출력하시오.
     public void method2() {
-    	int num =Integer.parseInt(sc.nextLine());
-    	num++;
-//    	for(int i = 0; i )
-//    	while(true) {
-//    		for(i)
+    	int sum = 0;
+    	int num = 0;
+    	while(sum < 100) {
+    		num++;
+    		if(num % 2 == 0) { // 홀수일때
+    			sum -= num;
+    		} else {  // 짝수일때
+    			sum += num;
+    		}
+    		/*
+    		if(sum >= 100) {
+    			System.out.println(num);
+    			break;
+    		}
+    		*/
     	}
+    	System.out.println(num);
+    }
     
 
     /*
@@ -59,21 +74,36 @@ class LoopPractice {
     */
     public void method3() {
     	System.out.print("문자열 : ");
-    	String a = sc.nextLine();
+    	String str = sc.nextLine();
     	System.out.print("문자 : ");
-    	String b = sc.nextLine();
+    	char ch = sc.nextLine().charAt(0);
+    	int count = 0;
+    	for(int i = 0; i < str.length(); i++) {
+    		
+    		if(ch == str.charAt(i)) {
+    			count++;
+    		}
+    	}
+    		System.out.println(str + " 안에 포함된 " + ch + "개수 : " + count);
+    	}
     	
-    	char target = b.charAt(0);
-        int count = 0;
-
-        for (int i = 0; i < a.length(); i++) {
-            if (a.charAt(i) == target) {
-                count++;
-            }
-        }
-
-        System.out.println(a + " 안에 포함된 " + b + " 개수 : " + count);
-    }
+    	
+//    	System.out.print("문자열 : ");
+//    	String a = sc.nextLine();
+//    	System.out.print("문자 : ");
+//    	String b = sc.nextLine();
+//    	
+//    	char target = b.charAt(0);
+//        int count = 0;
+//
+//        for (int i = 0; i < a.length(); i++) {
+//            if (a.charAt(i) == target) {
+//                count++;
+//            }
+//        }
+//
+//        System.out.println(a + " 안에 포함된 " + b + " 개수 : " + count);
+    
 
     /*
         0이 나올 때까지 숫자를 출력하시오. (random 사용! 0 ~ 10)
@@ -86,12 +116,17 @@ class LoopPractice {
         0
      */
     public void method4() {
-            System.out.print("숫자 입력 : ");
-        	int number = (int) (Math.random() * 10 - 1);
-        	for (int i = number; i >= 0; i--) {
-        		System.out.println(i);
-        	
-		}
+    	while(true) {
+    		int random = (int) (Math.random() * 11);
+        		System.out.println(random);
+        		if(random == 0)break;
+    	}
+//            System.out.print("숫자 입력 : ");
+//        	int random = (int) (Math.random() * 11);
+//        	for (int i = random; i >= 0; i--) {
+//        		System.out.println(i);
+//        	
+//		}
     }
 
     /*
@@ -106,8 +141,16 @@ class LoopPractice {
 
      */
     public void method5() {
+    	int[] dice = new int[6]; // dice[0] : 1, dice[1] : 2, ... dice[5] : 6
     	
+    	for(int i = 0; i < 10; i++) {
+    		int random = (int) (Math.random() * 6); // 1 ~ 6 -> 0 ~ 5
+    		dice[random]++;
+    	}
     	
+    	for(int i = 0; i < dice.length; i++) {
+    		System.out.println((i+1) + " : " + dice[1]);
+    	}
     	
     }
 
@@ -134,7 +177,13 @@ class LoopPractice {
 	    비긴 횟수 : 1, 진 횟수 : 1, 이긴 횟수 : 1
     */
     public void method6() {
-    
+    	
+    	RockPaperScissorView view = new RockPaperScissorView();
+    	view.gameStart();
     }
-
 }
+
+
+
+
+
