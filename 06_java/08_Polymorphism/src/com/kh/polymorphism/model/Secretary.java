@@ -1,6 +1,6 @@
 package com.kh.polymorphism.model;
 
-public class Secretary extends Employee{
+public class Secretary extends Employee {
 
 	private String boss;
 
@@ -24,6 +24,5 @@ public class Secretary extends Employee{
 	public String toString() {
 		return "Secretary [boss=" + boss + ", getName()=" + getName() + ", getSalary()=" + getSalary() + "]";
 	}
-
 
 }

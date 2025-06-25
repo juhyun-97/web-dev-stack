@@ -1,4 +1,4 @@
-package com.kh.array.practice2.model;
+package com.kh.practice2.model;
 
 public class Member {
 

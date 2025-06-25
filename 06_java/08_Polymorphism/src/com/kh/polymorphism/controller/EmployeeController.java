@@ -5,9 +5,9 @@ import com.kh.polymorphism.model.Engineer;
 
 public class EmployeeController {
 
-	public Employee findEmployee(Employee[] emp) {
-		for (Employee employee : emp) {
-			if (employee.getName().equals("최다인")) {
+	public Employee findEmployee(Employee[] emp, String name) {
+		for(Employee employee : emp) {
+			if(employee.getName().equals(name)) {
 				return employee;
 			}
 		}
@@ -15,7 +15,9 @@ public class EmployeeController {
 	}
 	
 	public int getAnnualSalary(Employee findEmployee) {
-		if (findEmployee instanceof Engineer) {
+		if(findEmployee==null) return -1;
+		
+		if(findEmployee instanceof Engineer) {
 			Engineer engineer = (Engineer) findEmployee;
 			return engineer.getSalary() * 12 + engineer.getBonus();
 		} 
@@ -24,10 +26,9 @@ public class EmployeeController {
 	
 	public int totalSalary(Employee[] emp) {
 		int sum = 0;
-		for (Employee employee : emp) {
+		for(Employee employee : emp) {
 			sum += employee.getSalary();
 		}
 		return sum;
 	}
 }
-

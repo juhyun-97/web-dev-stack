@@ -1,7 +1,6 @@
 package com.kh.polymorphism.model;
 
 public class Manager extends Employee {
-
 	private String dept;
 
 	public Manager() {
@@ -25,6 +24,6 @@ public class Manager extends Employee {
 		return "Manager [dept=" + dept + ", getName()=" + getName() + ", getSalary()=" + getSalary() + "]";
 	}
 
-
 	
+
 }

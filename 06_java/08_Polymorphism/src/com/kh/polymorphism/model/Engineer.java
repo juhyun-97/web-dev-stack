@@ -25,7 +25,6 @@ public class Engineer extends Employee {
 	public void setBonus(int bonus) {
 		this.bonus = bonus;
 	}
-	
 	@Override
 	public String toString() {
 		return "Engineer [tech=" + tech + ", bonus=" + bonus + ", getName()=" + getName() + ", getSalary()="

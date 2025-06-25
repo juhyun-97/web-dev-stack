@@ -1,5 +1,7 @@
 package com.kh.polymorphism;
 
+import java.util.Scanner;
+
 import com.kh.polymorphism.controller.EmployeeController;
 // FQCN(Full Qualified Class Name)
 import com.kh.polymorphism.model.Employee;
@@ -24,34 +26,39 @@ public class Application {
 		Employee en = new Engineer("최다인", 3500000, "자바", 300000);
 		Employee ma = new Manager("김은진", 4000000, "개발팀");
 		Employee se = new Secretary("전영현", 4500000, "문채은");
-
+		
 		System.out.println(em);
 		System.out.println(en);
 		System.out.println(ma);
 		System.out.println(se);
-
+		
 		// 다형성 + 객체 배열
-		Employee[] emp = { em, en, ma, se };
-
-		for (Employee employee : emp) {
+		Employee[] emp = {em, en, ma, se};
+		
+		for(Employee employee : emp) {
 			System.out.println(employee);
 		}
-		System.out.println("----------------");
+		
+		System.out.println("-------------------------------------");
 		EmployeeController ec = new EmployeeController();
-		// 이름으로 사람 찾기 아무나 -> 이름은 문자열(equals), getName
-		Employee findEmployee = ec.findEmployee(emp);
+		Scanner sc = new Scanner(System.in);
+		System.out.print("이름을 입력해주세요 > ");
+		String name = sc.nextLine();
+		// 일단 반복문!
+		// 이름으로 사람(Employee) 찾기 -> 이름은 문자열(equals), getName
+		Employee findEmployee = ec.findEmployee(emp, name);
 		
-		// 찾은 사람의 연봉(getSalary)은 얼마인지
-		// 특정 자식 객체 찾는 방법
-		System.out.println(ec.getAnnualSalary(findEmployee));
-
-		// 전체 총 월급
+		// 찾은 사람의 연봉(getSalary * 12)은?
+		// 특정 자식 객체 찾는 방법!
+		int annual = ec.getAnnualSalary(findEmployee);
+		if(annual != -1) {
+			System.out.println(annual);
+		}
+		
+		
+		// 전체 총 월급 (for문 필요! 각 getSalary 더해나가기)
 		System.out.println(ec.totalSalary(emp));
-		System.out.println("----------------");
 		
-	}
-	private static char[] sum(int salary) {
-		return null;
 	}
 
 }
