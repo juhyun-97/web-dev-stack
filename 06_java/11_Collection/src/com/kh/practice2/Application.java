@@ -55,13 +55,15 @@ public class Application {
 		 * */
 	}
 		
-	
+	Member m = new Member();
 	public void menu() {
-		Member m = new Member();
+		
 		System.out.print("이름 : ");
 		String name = sc.nextLine();
 		System.out.print("나이 : ");
 		int age = Integer.parseInt(sc.nextLine());
+		m.setName(name);
+		m.setAge(age);
 		boolean check = true;
 		while(check) {
 			System.out.println("==== 메뉴 ====");
@@ -75,7 +77,7 @@ public class Application {
 				
 				switch(num) {
 				case 1 : 
-					menu();
+					myPage();
 					break;
 				case 2 : 
 					rent();
@@ -93,10 +95,29 @@ public class Application {
 			
 		}
 	}
-	
+	//조건 : 이름과 나이가 일치한경우
+	// * -> 기존에 회원 중 이름이 있으면 "이미 존재하는 이름입니다. 다시 입력해주실래요?"
+	public void myPage() {
+		System.out.print("아이디 : ");
+		String login = sc.nextLine();
+		System.out.print("비밀번호 : ");
+		int pwd = Integer.parseInt(sc.nextLine());
+		if(login.equals(m.getName())) {
+			System.out.println("이미 존재하는 이름입니다. 다시 입력해주실래요?");
+		}
+	}
+	//        -> 1. 한 사람 당 대여할 수 있는 책은 총 3권
+	//* 				"더 이상 대여할 수 없습니다."
+	// *      -> 2. 해당 사람이 대여한 책은 대여 불가능
+	// *      		"이미 대여한 책입니다."
+	// *      -> 3. 나이 제한에 걸리는 책들 대여 불가능
+	// *      		"나이 제한으로 대여 불가능합니다."
+	// *      -> 4. 쿠폰이 있는 경우 나이 제한 걸려도 대여 가능
+	// *      -> (선택사항) 5. 각 책들마다 가능한 대여가 3권까지만
+	// *      			   HashMap -> getOrDefault(키, 초기값)	
+	// *      -> 대여 가능한 경우 : "성공적으로 대여되었습니다."
 	public void rent() {
-
-			System.out.println(books);
+//		System.out.println(m.get);
 		
 	}
 	
