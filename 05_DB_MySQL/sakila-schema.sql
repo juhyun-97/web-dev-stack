@@ -212,7 +212,7 @@ SET @@default_storage_engine = @old_default_storage_engine;
 
 DELIMITER ;;
 CREATE TRIGGER `ins_film` AFTER INSERT ON `film` FOR EACH ROW BEGIN
-    INSERT INTO film_text (film_id, title, description)
+    user_info INSERT INTO film_text (film_id, title, description)
         VALUES (new.film_id, new.title, new.description);
   END;;
 
@@ -516,7 +516,7 @@ proc: BEGIN
         Find all customers meeting the
         monthly purchase requirements
     */
-    INSERT INTO tmpCustomer (customer_id)
+    user_infoINSERT INTO tmpCustomer (customer_id)
     SELECT p.customer_id
     FROM payment AS p
     WHERE DATE(p.payment_date) BETWEEN last_month_start AND last_month_end
