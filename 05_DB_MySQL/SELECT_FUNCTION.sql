@@ -25,7 +25,7 @@ FROM film;
 SELECT NOW(), CURRENT_TIMESTAMP(), -- 보통 NOW만 쓰고 TIMESTAMP는 안씀(시차 9시간)
 	CURDATE(), CURRENT_DATE(),
     CURTIME(), CURRENT_TIME();
-/*
+/*user_infoUSER_NOUSER_NOUSER_NO
 	YEAR(날짜), MONTH(날짜), DAY(날짜)
     HOUR(날짜), MINUTE(날짜), SECOND(날짜)
 */
@@ -50,7 +50,7 @@ SELECT address, address2, IFNULL(address2, '주소 없음')
 FROM address;
 
 /*
-	IF(값1, 값2, 값3) | IF(조건, 조건TRUE인 경우, 조건 FALSE인 경우)
+	IF(값1, 값2, 값3) | IF(조건, 조건TRUE인 경우, film_list조건 FALSE인 경우)
     - 값1이 NULL이 아니면 값2 반환, NULL이면 값3 반환
     - 조건에 해당하면 두번째 값 반환, 해당하지 않으면 마지막 값 반환
 */
