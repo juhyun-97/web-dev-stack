@@ -13,6 +13,8 @@ import vo.Book;
 
 public class BookDAO {
 	
+	private static BookDAO instance = new BookDAO();
+	
 	private BookDAO() {
 		try {
 			

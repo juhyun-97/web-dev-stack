@@ -123,10 +123,30 @@ public class BookRentApp {
 	}
 	
 	public void login() {
+		Member member = new Member();
 		System.out.print("아이디 > ");
 		String id = sc.nextLine();
 		System.out.print("비밀번호 > ");
 		String pwd = sc.nextLine();
+		
+		mc.login(id, pwd);
+	}
+	
+	public void delete() {
+
+	}
+	
+	public void rentBook() {
+
+	}
+	
+	public void printRentBook() {
+
+	}
+	
+
+	public void deleteRent() {
+
 	}
 	
 	public void registerBook() {
@@ -137,19 +157,10 @@ public class BookRentApp {
 
 	}
 
-	public void delete() {
+	
 
-	}
+	
 
-	public void rentBook() {
+	
 
-	}
-
-	public void printRentBook() {
-
-	}
-
-	public void deleteRent() {
-
-	}
 }
