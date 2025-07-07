@@ -21,13 +21,13 @@ class MemberDAOTest {
 	void setUp() {
 		dao = MemberDAO.getInstance();
 	}
-
+	
 	// @AfterEach : 각 테스트 메서드가 실행된 후에 무조건 실행
 	@AfterEach
-	void setDown() throws SQLException{
+	void setDown() throws SQLException {
 		dao.connect().prepareStatement("DELETE FROM member").executeUpdate();
 	}
-	
+
 	@Test
 	void testRegister() throws SQLException {
 		Member member = new Member("test01", "테스트01", "pass01", 1);
@@ -52,6 +52,7 @@ class MemberDAOTest {
 		
 		// 탈퇴했다면 회원이 없겠지? -> 회원이 없다면 null
 		member = dao.login("test03", "pass01");
-		assertNull(member); // 이 값이 null일때 통과한다
+		assertNull(member); // 이 값이 null일때 통과
 	}
+
 }

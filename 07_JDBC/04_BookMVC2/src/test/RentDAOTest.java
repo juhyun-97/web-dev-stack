@@ -22,16 +22,15 @@ class RentDAOTest {
 	private MemberDAO member;
 	private BookDAO book;
 
-	
 	@BeforeEach
-	void setUp()  {
+	void setUp() {
 		dao = RentDAO.getInstance();
 		member = MemberDAO.getInstance();
-		book = BookDAO.getInstance();	
+		book = BookDAO.getInstance();
 	}
 
 	@AfterEach
-	void setDown() throws SQLException{
+	void setDown() throws SQLException {
 		dao.connect().prepareStatement("DELETE FROM rent").executeUpdate();
 		member.connect().prepareStatement("DELETE FROM member").executeUpdate();
 		book.connect().prepareStatement("DELETE FROM book").executeUpdate();
@@ -39,8 +38,8 @@ class RentDAOTest {
 	
 	Member addMember(String id) throws SQLException {
 		Member m = new Member(id, "테스트01", "pass01", 1);
-		member.register(m);		
-		return member.login(id, "pass01");	
+		member.register(m);
+		return member.login(id, "pass01");
 	}
 	
 	Book addBook() throws SQLException {
@@ -58,7 +57,7 @@ class RentDAOTest {
 	}
 	
 	@Test
-	void testPrint() throws SQLException {
+	void testPrint() throws SQLException  {
 		Member member = addMember("test02");
 		Book book = addBook();
 		dao.rentBook(member.getId(), book.getBookNo());
@@ -78,4 +77,5 @@ class RentDAOTest {
 		dao.deleteRent(list.get(0).getRentNo());
 		
 	}
+
 }

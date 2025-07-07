@@ -21,23 +21,22 @@ class BookDAOTest {
 	void setUp() {
 		dao = BookDAO.getInstance();
 	}
-
+	
 	@AfterEach
-	void setDown() throws SQLException{
+	void setDown() throws SQLException {
 		dao.connect().prepareStatement("DELETE FROM book").executeUpdate();
 	}
-
+	
 	@Test
 	void testRegisterPrint() throws SQLException {
 		dao.registerBook("오늘의 낙원에서 만나자", "하태완", 15);
 		
 		ArrayList<Book> list = dao.printBookAll();
 		assertEquals(list.get(0).getAuthor(), "하태완");
-		
 	}
 	
 	@Test
-	void testsellbook() throws SQLException{
+	void testSellBook() throws SQLException {
 		dao.registerBook("오늘의 낙원에서 만나자", "하태완", 15);
 		
 		ArrayList<Book> list = dao.printBookAll();
@@ -48,11 +47,5 @@ class BookDAOTest {
 		assertEquals(list.size(), 0);
 		assertTrue(list.isEmpty());
 	}
-	
+
 }
-
-
-
-
-
-

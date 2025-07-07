@@ -41,11 +41,11 @@ public class BookController {
 		
 		try {
 			int bookNo = dao.searchBook(title);
-			
+			/*
 			// 빌려있는 책은 삭제 못하게!
 			if(rentDao.selectRent(bookNo) > 0) {
 				return false;
-			}
+			}*/
 			int result = dao.sellBook(bookNo);
 			if(result==1) return true;
 			return false;

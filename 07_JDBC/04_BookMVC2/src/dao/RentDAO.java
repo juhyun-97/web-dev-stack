@@ -88,6 +88,7 @@ public class RentDAO {
 		ps.executeUpdate();
 	}
 	
+	// 해당 책으로 대여한 수 
 	public int selectRent(int bookNo) throws SQLException {
 		Connection connect = connect();
 		
