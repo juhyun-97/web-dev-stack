@@ -1,3 +1,4 @@
+<%@page import="java.sql.PreparedStatement"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,6 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%-- ViewServlet : 전체 회원 보기 관련 비즈니스 로직 구현
+		결과 페이지는 view.jsp --%>
+	<a href="/view">전체 회원 보기</a>
+		
+	</form>
 	<h1>회원가입</h1>
 	<form method="post" action="register">
 		<label>아이디 : <input type="text" name="id"> </label><br>
