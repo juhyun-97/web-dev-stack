@@ -11,17 +11,22 @@
 <body>
 <h1>전체 리스트</h1>
    		<% List<Member> list = (List<Member>)request.getAttribute("list"); %>
-   		<table border = "1">
+   		<table border = "3">
    		<tr>
    			<th>아이디</th>
+   			<th>이름</th>
    			<th>비밀번호</th>
+   			<th>나이</th>
    		</tr>
 		<% for(Member member : list) { %>
 			<tr>
 			<td><%=member.getId() %></td>
+			<td><%=member.getName() %></td>
 			<td><%=member.getPwd() %></td>
+			<td><%=member.getAge() %></td>
 			</tr>
 		<% } %>
 		</table>
+		<a href="/">메인 페이지로 이동</a>
 </body>
 </html>

@@ -16,13 +16,10 @@ JSP Element
 <title>Insert title here</title>
 </head>
 <body>
-	<%-- check 값도 바인딩 해서 여기서 조건을 걸 수 있다는 점! --%>
 	<% 
 		boolean check = (boolean) request.getAttribute("check");
 		String name = request.getParameter("name");
 	%>
-	<%-- String name = (String) request.getAttribute("name"); --%>
-	<%-- check가 true인 경우 --%>
 	<% if(check) { %>
 		<h1><%=name %>님, 회원가입이 완료되었습니다!</h1>
 	<% } else { %>
