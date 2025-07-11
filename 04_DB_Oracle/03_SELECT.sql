@@ -40,6 +40,7 @@
 -- USER_INFO 테이블 전체 조회
 SELECT * FROM USER_INFO;
 
+
 -- USER_INFO 이름(NAME), 나이(AGE), 취미(HOBBY) 조회
 Select name, age, hobby from user_info;
 SELECT name, age, hobby FROM user_info; -- MYSQL
