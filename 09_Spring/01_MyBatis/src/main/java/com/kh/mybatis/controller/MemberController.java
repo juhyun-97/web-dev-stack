@@ -7,10 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kh.mybatis.model.dto.SearchDTO;
 import com.kh.mybatis.model.vo.Member;
 import com.kh.mybatis.service.MemberService;
 
+import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
@@ -55,12 +58,25 @@ public class MemberController {
 	public String update(Member vo, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
-		
 		vo.setId(member.getId());
 		service.update(vo);
-		session.setAttribute("member", vo);
+		Member result = service.login(vo);
+		session.setAttribute("member", result);
 		return "redirect:/";
 	}
 	
-	
+	@GetMapping("/delete")
+	public String delete(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Member member = (Member) session.getAttribute("member");
+		service.delete(member.getId());
+		session.invalidate();
+		return "redirect:/";
+	}
+
+	@GetMapping("/search")
+	public String search(SearchDTO dto, Model model) {
+		model.addAttribute("list", service.search(dto));
+		return "index";
+	}
 }

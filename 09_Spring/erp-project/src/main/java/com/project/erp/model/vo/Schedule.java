@@ -1,5 +1,5 @@
 package com.project.erp.model.vo;
 
-public class Member {
+public class Schedule {
 
 }
