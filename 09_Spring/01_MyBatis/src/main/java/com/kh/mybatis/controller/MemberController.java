@@ -13,7 +13,6 @@ import com.kh.mybatis.model.dto.SearchDTO;
 import com.kh.mybatis.model.vo.Member;
 import com.kh.mybatis.service.MemberService;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
@@ -78,5 +77,11 @@ public class MemberController {
 	public String search(SearchDTO dto, Model model) {
 		model.addAttribute("list", service.search(dto));
 		return "index";
+	}
+	
+	@PostMapping("/delete")
+	public String delete(@RequestParam(name="idList", required=false) List<String> idList) { // required false처리 필수
+		if(idList != null) service.selectDelete(idList);
+		return"redirect:/";
 	}
 }
