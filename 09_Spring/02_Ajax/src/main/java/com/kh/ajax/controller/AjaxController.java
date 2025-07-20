@@ -11,18 +11,12 @@ import com.kh.ajax.vo.Member;
 
 @Controller
 public class AjaxController {
-
-    private final PageController pageController;
-
+	
 	private int count = 0;
 	
 	@Autowired
 	private MemberService service;
 
-    AjaxController(PageController pageController) {
-        this.pageController = pageController;
-    }
-	
 	@ResponseBody
 	@GetMapping("/count")
 	public int count() {
@@ -46,11 +40,17 @@ public class AjaxController {
 	
 	@ResponseBody
 	@PostMapping("/signup")
-	public void check(Member vo) {
-		System.out.println(vo.getId());
-		System.out.println(vo.getPwd());
-		//Member member = service.idCheck(id);
-		//if(member!=null) return true;
-		//return service.idBoolCheck(id);
+	public Member check(Member vo) {
+		service.register(vo);
+		return vo;
 	}
+	
+	@ResponseBody
+	@PostMapping("/register")
+	public Member register(Member vo) {
+		System.out.println(vo);
+		return vo;
+	}
+	
+	
 }

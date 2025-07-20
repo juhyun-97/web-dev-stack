@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class PageController {
-
+	
 	@GetMapping("/ajax1")
 	public String ajax1() {
 		return "01_count";
@@ -20,9 +20,14 @@ public class PageController {
 	public String ajax3() {
 		return "03_register";
 	}
-	
+
 	@GetMapping("/ajax4")
 	public String ajax4() {
 		return "04_serialize";
+	}
+	
+	@GetMapping("/ajax5")
+	public String ajax5() {
+		return "05_formdata";
 	}
 }
