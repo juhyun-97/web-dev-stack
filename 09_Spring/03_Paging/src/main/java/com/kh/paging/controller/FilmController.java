@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.kh.paging.dto.PagingDTO;
 import com.kh.paging.service.FilmService;
 import com.kh.paging.vo.Film;
 
@@ -17,10 +18,12 @@ public class FilmController {
 	@Autowired
 	private FilmService service;
 	
+	// localhost:8080/list -> GET
 	@GetMapping("/list")
-	public String list(Model model) {
-		List<Film> filmList = service.showFilm();
-		model.addAttribute("list", filmList);
+	public String list(Model model, PagingDTO paging) {
+		List<Film> list = service.showFilm(paging);
+		model.addAttribute("list", list);
+		model.addAttribute("paging", new PagingDTO(paging.getPage(), service.total()));
 		return "list";
 		}
 }

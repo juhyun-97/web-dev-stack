@@ -27,9 +27,9 @@
 			// 응답
 			success:function(response) {
 				if(response) {
-					$("#idCheckView").text("ID 사용 불가");
+					$("#idCheckView").text("ID 사용 불가");// 화면단데 글로 표현됨
 				} else {
-					$("#idCheckView").text("ID 사용 가능");
+					$("#idCheckView").text("ID 사용 가능");// 화면단에 글로 표현됨
 				}
 			},
 			error:function(xhr, status, error) {
