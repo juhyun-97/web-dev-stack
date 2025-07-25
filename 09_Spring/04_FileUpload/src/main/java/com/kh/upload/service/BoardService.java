@@ -6,23 +6,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.upload.mapper.BoardMapper;
-import com.kh.upload.vo.Board;
+import com.kh.upload.model.vo.Board;
 
 @Service
-public class BoardService {
+public class BoardService implements BoardMapper{
  
 	@Autowired
 	private BoardMapper mapper;
 
-	public String insertBoard() {
-		return mapper.insertBoard();
+	@Override
+	public void insert(Board vo) {
+		mapper.insert(vo);
+	}
+	@Override
+	public List<Board> selectAll() {
+		return mapper.selectAll();
 	}
 	
-	public List<Board> showAll() {
-		return mapper.showAll();
+	@Override
+	public Board select(int no) {
+		return mapper.select(no);
 	}
 	
-	public void deleteBoard(String no) {
-		mapper.deleteBoard(no);
+	@Override
+	public void update(Board vo) {
+		mapper.update(vo);
+		
 	}
+	@Override
+	public void delete(int no) {
+		mapper.delete(no);
+	}
+
+	
+
+	
 }

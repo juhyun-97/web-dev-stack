@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.kh.upload.vo.Board;
+import com.kh.upload.model.vo.Board;
 
 @Mapper
 public interface BoardMapper {
 
-	String insertBoard();
-	List<Board> showAll();
-	void deleteBoard(String no);
+	void insert(Board vo);
+	List<Board> selectAll();
+	Board select(int no);
+	void update(Board vo);
+	void delete(int no);
 }
