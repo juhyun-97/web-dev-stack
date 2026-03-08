@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>김주현 - 병원 원무·총무 이력서</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <style>
+      :root {
+        --brand: #0c7a5b;
+        --brand-soft: #e9f8f2;
+        --brand-deep: #085a43;
+        --text-main: #1c2733;
+        --text-sub: #4f6272;
+        --text-dim: #7b8a98;
+        --line: #d9e6e2;
+        --panel: #f4fbf8;
+        --white: #ffffff;
+        --accent: #1a73e8;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        color: var(--text-main);
+        background: #e3ebe8;
+        line-height: 1.58;
+        -webkit-font-smoothing: antialiased;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 24px 0;
+      }
+
+      .page {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto 20px;
+        padding: 11mm 14mm 10mm;
+        background: var(--white);
+        box-shadow: 0 3px 14px rgba(17, 24, 39, 0.1);
+        overflow: hidden;
+        position: relative;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+          padding: 0;
+        }
+
+        .page {
+          margin: 0;
+          box-shadow: none;
+          page-break-after: always;
+        }
+
+        .page:last-child {
+          page-break-after: auto;
+        }
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        border-bottom: 2px solid var(--brand);
+        padding-bottom: 8px;
+        margin-bottom: 10px;
+      }
+
+      .header-left {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .header-right {
+        flex-shrink: 0;
+      }
+
+      .profile-photo {
+        width: 28mm;
+        height: 36mm;
+        object-fit: cover;
+        object-position: center 20%;
+        border-radius: 6px;
+        border: 1px solid #c6e1d7;
+        background: #f4fbf8;
+      }
+
+      .name {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.7px;
+        margin-bottom: 2px;
+      }
+
+      .role {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--brand);
+        margin-bottom: 6px;
+      }
+
+      .contacts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 11.3px;
+        color: var(--text-sub);
+        margin-bottom: 5px;
+      }
+
+      .meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px 14px;
+        font-size: 10px;
+        color: var(--text-sub);
+      }
+
+      .meta strong {
+        color: var(--text-main);
+        margin-right: 6px;
+        font-weight: 700;
+      }
+
+      .summary {
+        background: var(--panel);
+        border: 1px solid #cde9de;
+        border-left: 4px solid var(--brand);
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-size: 11px;
+        color: var(--text-sub);
+        margin-bottom: 10px;
+      }
+
+      .summary strong {
+        color: var(--text-main);
+      }
+
+      .section {
+        margin-bottom: 10px;
+      }
+
+      .section-title {
+        font-size: 12.3px;
+        font-weight: 800;
+        letter-spacing: 0.3px;
+        color: var(--brand-deep);
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin-bottom: 6px;
+      }
+
+      .section-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 7px;
+      }
+
+      .card {
+        background: linear-gradient(180deg, #f8fcfa 0%, #f2f9f6 100%);
+        border: 1px solid #d1ebe1;
+        border-left: 3px solid #9fd9c4;
+        border-radius: 8px;
+        padding: 8px 10px;
+      }
+
+      .card h3 {
+        font-size: 10.8px;
+        margin-bottom: 2px;
+        color: var(--text-main);
+      }
+
+      .card p {
+        font-size: 9.8px;
+        color: var(--text-sub);
+        line-height: 1.45;
+      }
+
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .item {
+        border-left: 2px solid var(--line);
+        padding-left: 12px;
+        position: relative;
+      }
+
+      .item::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--brand);
+        border: 2px solid var(--white);
+        position: absolute;
+        left: -6px;
+        top: 4px;
+      }
+
+      .item.current::before {
+        background: var(--accent);
+        box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.16);
+      }
+
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        align-items: baseline;
+        margin-bottom: 1px;
+      }
+
+      .item-title {
+        font-size: 11.3px;
+        font-weight: 700;
+      }
+
+      .item-period {
+        font-size: 9.7px;
+        color: var(--text-dim);
+        white-space: nowrap;
+      }
+
+      .item-role {
+        font-size: 9.8px;
+        color: var(--brand);
+        font-weight: 600;
+        margin-bottom: 1px;
+      }
+
+      .item ul {
+        list-style: none;
+      }
+
+      .item li {
+        font-size: 9.6px;
+        color: var(--text-sub);
+        position: relative;
+        padding-left: 9px;
+        line-height: 1.42;
+      }
+
+      .item li::before {
+        content: "-";
+        position: absolute;
+        left: 0;
+        color: var(--text-dim);
+      }
+
+      .result {
+        margin-top: 2px;
+        display: inline-block;
+        font-size: 9.2px;
+        font-weight: 700;
+        color: #0d5c46;
+        background: var(--brand-soft);
+        border-radius: 4px;
+        padding: 1px 6px;
+      }
+
+      .project-list {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .project-card {
+        background: linear-gradient(180deg, #fcfffe 0%, #f2faf6 100%);
+        border: 1px solid #d3ebe2;
+        border-left: 3px solid #8ecfb9;
+        border-radius: 9px;
+        padding: 8px 10px;
+      }
+
+      .project-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 3px;
+      }
+
+      .project-name {
+        font-size: 10.6px;
+        font-weight: 700;
+        color: var(--text-main);
+      }
+
+      .project-meta {
+        font-size: 8.9px;
+        color: #0c5f48;
+        font-weight: 700;
+        background: var(--brand-soft);
+        border-radius: 999px;
+        padding: 1px 7px;
+        white-space: nowrap;
+      }
+
+      .project-context {
+        font-size: 9.4px;
+        color: var(--text-sub);
+        margin-bottom: 3px;
+        line-height: 1.42;
+      }
+
+      .project-points {
+        list-style: none;
+        margin-bottom: 3px;
+      }
+
+      .project-points li {
+        font-size: 9.3px;
+        color: var(--text-sub);
+        line-height: 1.4;
+        position: relative;
+        padding-left: 9px;
+      }
+
+      .project-points li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: -1px;
+        color: var(--brand);
+        font-weight: 700;
+      }
+
+      .project-outcome {
+        font-size: 9px;
+        color: #0d5c46;
+        background: #e8f6f0;
+        border-radius: 5px;
+        padding: 2px 6px;
+        font-weight: 700;
+        display: inline-block;
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 9.8px;
+      }
+
+      .table th,
+      .table td {
+        border-bottom: 1px solid #e6efec;
+        padding: 4px 6px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .table th {
+        width: 140px;
+        color: var(--text-main);
+        font-weight: 700;
+        background: #f9fdfb;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: 130px 1fr;
+        gap: 5px 8px;
+        font-size: 9.8px;
+        align-items: start;
+      }
+
+      .skills .label {
+        color: var(--text-main);
+        font-weight: 700;
+        padding-top: 2px;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .tag {
+        font-size: 9px;
+        color: var(--text-sub);
+        border: 1px solid #d8e7e2;
+        background: #f8faf9;
+        border-radius: 999px;
+        padding: 1px 7px;
+      }
+
+      .tag.primary {
+        background: var(--brand-soft);
+        border-color: transparent;
+        color: var(--brand-deep);
+        font-weight: 700;
+      }
+
+      .cover-note {
+        border: 1px solid #d2e9df;
+        border-left: 4px solid var(--brand);
+        background: linear-gradient(135deg, #f6fcf9 0%, #ecf8f2 100%);
+        border-radius: 10px;
+        padding: 10px 12px;
+      }
+
+      .cover-note h3 {
+        font-size: 12.2px;
+        margin-bottom: 6px;
+      }
+
+      .cover-note p {
+        font-size: 10px;
+        color: var(--text-sub);
+        margin-bottom: 6px;
+        text-align: justify;
+        line-height: 1.56;
+      }
+
+      .cover-note p:last-child {
+        margin-bottom: 0;
+      }
+
+      .foot {
+        margin-top: 10px;
+        border-top: 1px solid #d8e8e2;
+        padding-top: 8px;
+        font-size: 9.7px;
+        color: var(--text-sub);
+      }
+
+      .declaration {
+        margin-top: 6px;
+        text-align: center;
+        font-size: 9.5px;
+        color: var(--text-dim);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="header-left">
+          <div class="name">김주현</div>
+          <div class="role">병원 원무 · 행정 · 총무</div>
+          <div class="contacts">
+            <span>010-6866-9533</span>
+            <span>|</span>
+            <span>rlawngus1316@naver.com</span>
+          </div>
+          <div class="meta">
+            <div><strong>주소</strong>경기도 안산시 단원구</div>
+            <div><strong>총 경력</strong>4년 7개월</div>
+            <div><strong>학력</strong>용인송담대학교 의료정보과 졸업</div>
+            <div><strong>병역</strong>육군 병장 만기전역(2017.04-2019.01)</div>
+          </div>
+        </div>
+        <div class="header-right">
+          <img src="kim_pic.jpeg" alt="김주현 증명사진" class="profile-photo" />
+        </div>
+      </header>
+
+      <div class="summary">
+        원무과 실무 4년 7개월 동안
+        <strong
+          >외래/입퇴원 접수·수납, 제증명 발급, 미수금 관리, 시설/자산
+          운영</strong
+        >을 수행했습니다. 환자 경험을 바탕으로 안내 체계를 고도화하고, 퇴원 절차
+        개선을 주도해 <strong>퇴원 대기 시간 30% 단축</strong>을 달성했습니다.
+        현장 대응력과 숫자 정확도를 기반으로 병원 운영 안정성과 환자 만족을
+        동시에 개선합니다.
+      </div>
+
+      <section class="section">
+        <h2 class="section-title">핵심 강점</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>원무 운영 총괄 경험</h3>
+            <p>
+              외래 및 입퇴원 접수/수납, 예약 관리, 제증명 발급, 월정액 청구 및
+              미수금 관리까지 원무 핵심 업무 수행.
+            </p>
+          </article>
+          <article class="card">
+            <h3>환자 관점 프로세스 개선</h3>
+            <p>
+              환자 불편 포인트를 반영해 상담·안내 프로세스를 정비하고 서비스
+              품질 개선에 기여.
+            </p>
+          </article>
+          <article class="card">
+            <h3>부서 간 협업 조정</h3>
+            <p>
+              원무팀-간호팀 간 퇴원 절차 지연 이슈를 개선해 업무 마찰을 줄이고
+              처리 속도를 향상.
+            </p>
+          </article>
+          <article class="card">
+            <h3>현장 리스크 대응</h3>
+            <p>
+              야간 당직 및 시설 안전 점검을 통해 취약 요소를 선제 점검하고 운영
+              리스크를 낮춤.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">학력 및 자격</h2>
+        <table class="table">
+          <tr>
+            <th>학력</th>
+            <td>용인송담대학교 의료정보과 (2016.03 - 2020.02, 졸업)</td>
+          </tr>
+          <tr>
+            <th>고등학교</th>
+            <td>안산강서고등학교 이과계열 (2013.03 - 2016.02, 졸업)</td>
+          </tr>
+          <tr>
+            <th>자격/면허</th>
+            <td>
+              병원서비스코디네이터, 의료정보IT관리사, CPR(심폐소생술),
+              1종보통운전면허, ITQ(한글/엑셀/파워포인트)
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">경력</h2>
+        <div class="timeline">
+          <article class="item current">
+            <div class="item-head">
+              <div class="item-title">
+                더드림의료소비자생활협동조합 미래요양병원
+              </div>
+              <div class="item-period">2024.04 - 2025.03 (1년 0개월)</div>
+            </div>
+            <div class="item-role">
+              원무과 주임 | 원무 운영 총괄 및 채용/총무 실무
+            </div>
+            <ul>
+              <li>환자별 월정액 청구 및 수납, 미수금 정산 관리</li>
+              <li>외래/입퇴원 접수·수납, 예약 운영, 제증명 발급 업무 총괄</li>
+              <li>
+                병원 운영 물품 발주, 재고 유지, 시설 안전 점검 및 유지보수 조율
+              </li>
+            </ul>
+            <div class="result">
+              복잡한 월정액 정산 체계 안정화, 미수금 발생 최소화
+            </div>
+          </article>
+
+          <article class="item">
+            <div class="item-head">
+              <div class="item-title">장동육병원 (재입사)</div>
+              <div class="item-period">2022.06 - 2023.12 (1년 7개월)</div>
+            </div>
+            <div class="item-role">
+              원무과 주임 | 현장 운영 총괄 및 프로세스 개선
+            </div>
+            <ul>
+              <li>
+                퇴원 심사 사전 공유제 도입 및 실시간 소통 채널 운영으로 협업
+                효율화
+              </li>
+              <li>
+                수술 상담 및 프로세스 안내 체계화, 환자/보호자 응대 매뉴얼 보완
+              </li>
+              <li>신규 인력 교육과 운영 가이드라인 전파로 팀 운영 안정화</li>
+            </ul>
+            <div class="result">
+              퇴원 대기 시간 30% 단축, 조직 신뢰 기반 재입사
+            </div>
+          </article>
+
+          <article class="item">
+            <div class="item-head">
+              <div class="item-title">장동육병원</div>
+              <div class="item-period">2020.03 - 2021.11 (1년 9개월)</div>
+            </div>
+            <div class="item-role">
+              원무과 사원 | 원무 행정 및 재무 정산 실무
+            </div>
+            <ul>
+              <li>
+                접수/수납, 제증명 발급, 거래처 정산 및 세금계산서 발행 수행
+              </li>
+              <li>
+                수술실 환경 셋업, C-arm/X-ray 운용 보조, 응급 상황 현장 지원
+              </li>
+              <li>선입선출 재고 운영과 시설 점검으로 진료 환경 안정화</li>
+            </ul>
+            <div class="result">원무 행정부터 현장 지원까지 멀티 역할 수행</div>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <div class="page">
+      <section class="section">
+        <h2 class="section-title">경력 하부 세부 프로젝트</h2>
+        <div class="project-list">
+          <article class="project-card">
+            <div class="project-head">
+              <div class="project-name">월정액 청구·미수금 관리 체계화</div>
+              <div class="project-meta">2024.04 - 2025.03</div>
+            </div>
+            <p class="project-context">
+              요양병원 특유의 복잡한 정산 구조에서 누락과 지연을 줄이기 위해
+              수납/청구/미수금 흐름을 표준화했습니다.
+            </p>
+            <ul class="project-points">
+              <li>
+                환자별 월정액 청구와 수납 내역을 교차 검토하고 장기 미수금
+                사유를 분류 관리
+              </li>
+              <li>
+                외래·입퇴원 접수, 제증명 발급, 정산 업무를 한 흐름으로 연결해
+                처리 속도 개선
+              </li>
+            </ul>
+            <div class="project-outcome">
+              성과: 정산 정확도 강화 및 미수금 발생 최소화
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-head">
+              <div class="project-name">퇴원 절차 협업 프로세스 고도화</div>
+              <div class="project-meta">2022.06 - 2023.12</div>
+            </div>
+            <p class="project-context">
+              원무팀-간호팀 간 정보 전달 지연을 해결하기 위해 퇴원 프로세스를
+              환자 동선 중심으로 재설계했습니다.
+            </p>
+            <ul class="project-points">
+              <li>
+                퇴원 심사 사전 공유제와 실시간 소통 채널을 도입해 대기 병목 구간
+                축소
+              </li>
+              <li>
+                환자·보호자 안내 스크립트와 응대 매뉴얼 보완으로 현장 혼선 감소
+              </li>
+            </ul>
+            <div class="project-outcome">
+              성과: 퇴원 대기 시간 30% 단축, 부서 간 협업 만족도 개선
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-head">
+              <div class="project-name">현장 밀착형 원무·안전 운영 지원</div>
+              <div class="project-meta">2020.03 - 2021.11</div>
+            </div>
+            <p class="project-context">
+              기초 원무 행정과 현장 지원을 동시에 수행해야 하는 환경에서, 진료
+              연속성과 안전 대응력을 높이는 운영체계를 정착시켰습니다.
+            </p>
+            <ul class="project-points">
+              <li>
+                접수·수납·제증명·거래처 정산과 함께 수술실 셋업, 의료장비 보조,
+                응급 상황 지원 수행
+              </li>
+              <li>
+                야간 당직 및 시설 점검으로 환자 이동 동선의 안전 취약 요소를
+                선제 점검
+              </li>
+            </ul>
+            <div class="project-outcome">
+              성과: 원무 행정과 현장 지원을 연결한 전천후 운영 역량 확보
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">직무 스킬</h2>
+        <div class="skills">
+          <div class="label">원무/행정</div>
+          <div class="tags">
+            <span class="tag primary">원무</span>
+            <span class="tag primary">입원관리</span>
+            <span class="tag">환자안내</span>
+            <span class="tag">제증명 발급</span>
+            <span class="tag">접수/수납</span>
+          </div>
+
+          <div class="label">정산/회계</div>
+          <div class="tags">
+            <span class="tag primary">미수금관리</span>
+            <span class="tag primary">전표처리</span>
+            <span class="tag">회계</span>
+            <span class="tag">세금계산서 발행</span>
+          </div>
+
+          <div class="label">총무/구매</div>
+          <div class="tags">
+            <span class="tag primary">구매관리</span>
+            <span class="tag">재고관리</span>
+            <span class="tag">수/발주관리</span>
+            <span class="tag">비품관리</span>
+            <span class="tag">자산관리</span>
+          </div>
+
+          <div class="label">협업/운영</div>
+          <div class="tags">
+            <span class="tag">신규 인력 교육</span>
+            <span class="tag">부서 간 갈등 중재</span>
+            <span class="tag">야간 당직</span>
+            <span class="tag">현장 리스크 점검</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">자기소개 요약</h2>
+        <div class="cover-note">
+          <h3>"환자와 현장을 함께 이해하는 원무 실무자"</h3>
+          <p>
+            저는 병원 원무과에서 행정 정확성과 현장 대응력을 함께 요구받는
+            업무를 수행해 왔습니다. 접수와 수납, 제증명 발급, 입퇴원 관리 같은
+            기본 업무를 빠르고 정확하게 처리하는 동시에 환자와 보호자가 체감하는
+            불편을 줄이는 데 집중해 왔습니다.
+          </p>
+          <p>
+            요양병원 근무 시에는 환자별 월정액 청구와 미수금 관리를 체계화하고,
+            외래 및 입퇴원 접수 흐름을 정리해 혼선이 적은 운영 환경을
+            만들었습니다. 수납 내역과 정산 데이터를 교차 확인하는 습관을 통해
+            정산 정확도를 유지했고, 장기 미수금은 사유를 분석해 회수율을
+            관리했습니다.
+          </p>
+          <p>
+            프로세스 개선 측면에서는 원무팀과 간호팀 사이에서 반복되던 퇴원 절차
+            지연 문제를 구조적으로 해결했습니다. 퇴원 심사 사전 공유제와 실시간
+            소통 채널을 도입해 업무 순서를 명확히 했고, 그 결과 퇴원 대기 시간을
+            30% 단축하는 성과를 만들었습니다.
+          </p>
+          <p>
+            현장 운영에서도 강점을 보였습니다. 야간 당직과 시설 안전 점검을
+            수행하며 환자 안전에 영향을 줄 수 있는 취약 요소를 선제적으로
+            점검했고, 신규 인력 교육과 운영 가이드 전파를 통해 팀의 업무 품질을
+            일정하게 유지했습니다.
+          </p>
+          <p>
+            입사 후에는 원무 행정의 정확성, 환자 응대 품질, 총무 운영의 안정성을
+            균형 있게 강화해 병원 운영의 기반을 더 단단히 만들겠습니다. 환자와
+            동료가 모두 신뢰할 수 있는 원무 담당자로서, 현장 중심의 개선을
+            꾸준히 이어가겠습니다.
+          </p>
+        </div>
+      </section>
+
+      <section class="foot">
+        <div><strong>희망근무형태</strong> 정규직</div>
+        <div><strong>희망연봉</strong> 회사내규에 따름</div>
+        <div><strong>희망지역</strong> 서울,경기</div>
+        <div class="declaration">
+          위의 모든 기재사항은 사실과 다름이 없음을 확인합니다. (작성자: 김주현)
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
